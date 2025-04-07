@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <title>Event List</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 md:flex">
+        <div class="md:w-9/12">
+            <section>
+                <div class="pt-6">
+                    <h1 class="text-2xl font-bold mb-6 text-gray-800">Event List</h1>
+                    <!-- Header Row -->
+                    <div class="grid grid-cols-6 text-sm font-semibold text-gray-600 border border-gray-300">
+                        <div class="p-2 border-r border-gray-300 text-center">Event Name</div>
+                        <div class="p-2 border-r border-gray-300 text-center">Location</div>
+                        <div class="p-2 border-r border-gray-300 text-center">Registration Start</div>
+                        <div class="p-2 border-r border-gray-300 text-center">Registration End</div>
+                        <div class="p-2 border-r border-gray-300 text-center">Event Start</div>
+                        <div class="p-2 text-center">Event End</div>
+                    </div>
+
+                    <!-- Event Rows -->
+                    <div th:each="event : ${events}" class="grid grid-cols-6 text-sm border-x border-b border-gray-300">
+                        <div th:text="${event.eventName}" class="p-2 border-r border-gray-300 font-medium text-gray-800"></div>
+                        <div th:text="${event.eventLocation}" class="p-2 border-r border-gray-300 text-gray-700"></div>
+                        <div th:text="${#temporals.format(event.registrationStartDatetime, 'MMM d, yyyy HH:mm')}" class="p-2 border-r border-gray-300 text-gray-700"></div>
+                        <div th:text="${#temporals.format(event.registrationEndDatetime, 'MMM d, yyyy HH:mm')}" class="p-2 border-r border-gray-300 text-gray-700"></div>
+                        <div th:text="${#temporals.format(event.eventStartDatetime, 'MMM d, yyyy HH:mm')}" class="p-2 border-r border-gray-300 text-gray-700"></div>
+                        <div th:text="${#temporals.format(event.eventEndDatetime, 'MMM d, yyyy HH:mm')}" class="p-2 text-gray-700"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+</body>
+</html>
