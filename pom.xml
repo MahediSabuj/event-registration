@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.ms29</groupId>
     <artifactId>event-registration</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>event-registration</name>
     <description>Event Registration System</description>
     <url/>
